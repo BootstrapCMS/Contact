@@ -65,7 +65,7 @@ This option (`'path'`) defines the path to the contact form. This is the page wh
 
 **Contact Form Email**
 
-This option (`'email'`) defines the email address to send contact form messages to. Setting it to null will email the contact form data to the user with the id of 1. Please only enter an email address here if you change it from null. The default value for this setting is `null`.
+This option (`'email'`) defines the email address to send contact form messages to. The default value for this setting is `null`.
 
 
 ## Usage
