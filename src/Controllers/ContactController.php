@@ -44,8 +44,6 @@ class ContactController extends Controller
     public function __construct()
     {
         $this->beforeFilter('throttle.contact', array('only' => array('postSubmit')));
-
-        parent::__construct();
     }
 
     /**
