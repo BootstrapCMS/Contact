@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Contact\Controllers;
 
-use Illuminate\Routing\Contoller;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
