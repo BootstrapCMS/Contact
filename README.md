@@ -15,7 +15,7 @@ Laravel Contact
 Laravel Contact is a contact form backend for [Laravel 4.1](http://laravel.com).
 
 * Laravel Contact was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
-* Laravel Contact relies on many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing).
+* Laravel Contact relies on a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing).
 * Laravel Contact uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Contact) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Contact) to check everything is working.
 * Laravel Contact uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/8d54e859-7c8e-47e0-aced-11b84f3cca3e) to run additional checks.
 * Laravel Contact uses [Composer](https://getcomposer.org) to load and manage dependencies.
@@ -36,7 +36,7 @@ Please check the system requirements before installing Laravel Contact.
 
 To get the latest version of Laravel Contact, simply require `"graham-campbell/contact": "0.1.*@dev"` in your `composer.json` file. See the [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing) readme for extra requirements before continuing. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
-You will need to register many service providers before you attempt to load the Laravel Contact service provider. Open up `app/config/app.php` and add the following to the `providers` key.
+You will need to register a few service providers before you attempt to load the Laravel Contact service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
 * `'GrahamCampbell\Core\CoreServiceProvider'`
 * `'GrahamCampbell\Queuing\QueuingServiceProvider'`
