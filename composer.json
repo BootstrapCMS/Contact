@@ -1,0 +1,43 @@
+{
+    "name": "graham-campbell/contact",
+    "description": "Contact Is A Contact Form Backend For Laravel 4.1",
+    "keywords": ["laravel", "framework", "contact", "form", "contact form", "Contact", "Laravel Contact", "Laravel-Contact", "Graham Campbell", "GrahamCampbell"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@mineuk.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.7",
+        "laravel/framework": "4.1.*",
+        "symfony/config": "2.4.*",
+        "symfony/event-dispatcher": "2.4.*",
+        "symfony/filesystem": "2.4.*",
+        "graham-campbell/core": "0.3.*",
+        "graham-campbell/queuing": "0.3.*",
+        "graham-campbell/binput": "1.1.*",
+        "graham-campbell/throttle": "0.2.*"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "0.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "GrahamCampbell\\Contact\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GrahamCampbell\\Tests\\Contact\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
