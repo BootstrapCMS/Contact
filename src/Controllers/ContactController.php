@@ -73,7 +73,7 @@ class ContactController extends Controller
 
         try {
             $data = array(
-                'view'    => 'graham-campbell/cms-contact::message',
+                'view'    => 'graham-campbell/contact::message',
                 'email'   => Config::get('graham-campbell/contact::email'),
                 'subject' => Config::get('platform.name').' - New Message',
                 'url'     => $url,
