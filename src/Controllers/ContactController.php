@@ -71,10 +71,17 @@ class ContactController extends Controller
 
         $quote = HTMLMin::render(nl2br(e($input['message'])));
 
+        $email = Config::get('graham-campbell/contact::email');
+
+        if (!$email) {
+            return Redirect::to(Config::get('graham-campbell/contact::path'))->withInput()
+                ->with('error', 'We were unable to send the message. Please contact support directly.');
+        }
+
         try {
             $data = array(
                 'view'    => 'graham-campbell/contact::message',
-                'email'   => Config::get('graham-campbell/contact::email'),
+                'email'   => $email,
                 'subject' => Config::get('platform.name').' - New Message',
                 'url'     => $url,
                 'contact' => $input['email'],
