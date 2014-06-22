@@ -14,7 +14,7 @@
         "illuminate/config": "~4.1",
         "illuminate/routing": "~4.1",
         "illuminate/support": "~4.1",
-        "illuminate/validator": "~4.1",
+        "illuminate/validation": "~4.1",
         "illuminate/view": "~4.1",
         "graham-campbell/core": "0.4.*",
         "graham-campbell/queuing": "0.4.*",
