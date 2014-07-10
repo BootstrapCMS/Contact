@@ -48,7 +48,6 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
     {
         return array(
             'GrahamCampbell\Core\CoreServiceProvider',
-            'GrahamCampbell\Queuing\QueuingServiceProvider',
             'GrahamCampbell\Security\SecurityServiceProvider',
             'GrahamCampbell\Binput\BinputServiceProvider',
             'GrahamCampbell\Throttle\ThrottleServiceProvider'

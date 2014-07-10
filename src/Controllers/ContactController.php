@@ -18,12 +18,11 @@ namespace GrahamCampbell\Contact\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\HTMLMin\Facades\HTMLMin;
-use GrahamCampbell\Queuing\Facades\Queuing;
 
 /**
  * This is the contact controller class.
@@ -69,7 +68,7 @@ class ContactController extends Controller
 
         $url = URL::to(Config::get('graham-campbell/core::home', '/'));
 
-        $quote = HTMLMin::render(nl2br(e($input['message'])));
+        $quote = nl2br(e($input['message']));
 
         $email = Config::get('graham-campbell/contact::email');
 
@@ -78,33 +77,30 @@ class ContactController extends Controller
                 ->with('error', 'We were unable to send the message. Please contact support directly.');
         }
 
-        try {
-            $data = array(
-                'view'    => 'graham-campbell/contact::message',
-                'email'   => $email,
-                'subject' => Config::get('platform.name').' - New Message',
-                'url'     => $url,
-                'contact' => $input['email'],
-                'name'    => $input['first_name'].' '.$input['last_name'],
-                'quote'   => $quote
-            );
+        $mail = array(
+            'email'   => $email,
+            'subject' => Config::get('platform.name').' - New Message',
+            'url'     => $url,
+            'contact' => $input['email'],
+            'name'    => $input['first_name'].' '.$input['last_name'],
+            'quote'   => $quote
+        );
 
-            Queuing::pushMail($data);
+        Mail::queue('graham-campbell/contact::message', $mail, function($message) use ($mail) {
+            $message->to($mail['email'])->subject($mail['subject']);
+        });
 
-            $data = array(
-                'view'    => 'graham-campbell/contact::thanks',
-                'email'   => $input['email'],
-                'subject' => Config::get('platform.name').' - Notification',
-                'url'     => $url,
-                'name'    => $input['first_name'],
-                'quote'   => $quote
-            );
+        $mail = array(
+            'email'   => $input['email'],
+            'subject' => Config::get('platform.name').' - Notification',
+            'url'     => $url,
+            'name'    => $input['first_name'],
+            'quote'   => $quote
+        );
 
-            Queuing::pushMail($data);
-        } catch (\Exception $e) {
-            return Redirect::to(Config::get('graham-campbell/contact::path'))->withInput()
-                ->with('error', 'We were unable to send the message. Please contact support.');
-        }
+        Mail::queue('graham-campbell/contact::thanks', $mail, function($message) use ($mail) {
+            $message->to($mail['email'])->subject($mail['subject']);
+        });
 
         return Redirect::to(Config::get('graham-campbell/core::home', '/'))
             ->with('success', 'Your message was sent successfully. Thank you for contacting us.');
