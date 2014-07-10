@@ -68,7 +68,7 @@ class ContactServiceProvider extends ServiceProvider
     protected function registerContactMailer()
     {
         $this->app->bind('GrahamCampbell\Contact\Mailer', function ($app) {
-            $mail = $app['mail'];
+            $mail = $app['mailer'];
             $home = $app['config']['graham-campbell/core::home'];
             $path = $app['config']['graham-campbell/contact::path'];
             $name = $app['config']['platform.name'];
