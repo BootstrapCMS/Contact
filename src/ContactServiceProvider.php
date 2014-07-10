@@ -56,7 +56,25 @@ class ContactServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerContactMailer();
         $this->registerContactController();
+    }
+
+    /**
+     * Register the contact mailer class.
+     *
+     * @return void
+     */
+    protected function registerContactMailer()
+    {
+        $this->app->bind('GrahamCampbell\Contact\Mailer', function ($app) {
+            $mail = $app['mail'];
+            $home = $app['config']['graham-campbell/core::home'];
+            $path = $app['config']['graham-campbell/contact::path'];
+            $name = $app['config']['platform.name'];
+
+            return new Mailer($mail, $home, $path, $name);
+        });
     }
 
     /**
@@ -67,7 +85,12 @@ class ContactServiceProvider extends ServiceProvider
     protected function registerContactController()
     {
         $this->app->bind('GrahamCampbell\Contact\Controllers\ContactController', function ($app) {
-            return new Controllers\ContactController();
+            $mailer = $app->make('GrahamCampbell\Contact\Mailer');
+            $binput = $app['binput'];
+            $home = $app['config']['graham-campbell/core::home'];
+            $path = $app['config']['graham-campbell/contact::path'];
+
+            return new Controllers\ContactController($mailer, $binput, $home, $path);
         });
     }
 
