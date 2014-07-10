@@ -21,7 +21,6 @@ use GrahamCampbell\Contact\Mailer;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Binput\Facades\Binput;
 
 /**
  * This is the contact controller class.
