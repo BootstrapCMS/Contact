@@ -114,12 +114,13 @@ class Mailer
     protected function sendMessage($name, $email, $quote)
     {
         $mail = array(
-            'email'   => $this->email,
-            'subject' => $this->name.' - New Message',
-            'url'     => $this->home,
-            'contact' => $email,
-            'name'    => $name,
-            'quote'   => $quote
+            'email'    => $this->email,
+            'subject'  => $this->name.' - New Message',
+            'platform' => $this->name,
+            'url'      => $this->home,
+            'contact'  => $email,
+            'name'     => $name,
+            'quote'    => $quote
         );
 
         $this->mail->queue('graham-campbell/contact::message', $mail, function($message) use ($mail) {
@@ -138,11 +139,12 @@ class Mailer
     protected function sendThanks($name, $email, $quote)
     {
         $mail = array(
-            'email'   => $email,
-            'subject' => $this->name.' - Notification',
-            'url'     => $this->home,
-            'name'    => $name,
-            'quote'   => $quote
+            'email'    => $email,
+            'subject'  => $this->name.' - Notification',
+            'platform' => $this->name,
+            'url'      => $this->home,
+            'name'     => $name,
+            'quote'    => $quote
         );
 
         $this->mail->queue('graham-campbell/contact::thanks', $mail, function($message) use ($mail) {
