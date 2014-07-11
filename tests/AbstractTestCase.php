@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Tests\Contact;
 
-use GrahamCampbell\TestBench\Classes\AbstractLaravelTestCase;
+use GrahamCampbell\TestBench\AbstractLaravelTestCase;
 
 /**
  * This is the abstract test case class.
@@ -48,7 +48,6 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
     {
         return array(
             'GrahamCampbell\Core\CoreServiceProvider',
-            'GrahamCampbell\Queuing\QueuingServiceProvider',
             'GrahamCampbell\Security\SecurityServiceProvider',
             'GrahamCampbell\Binput\BinputServiceProvider',
             'GrahamCampbell\Throttle\ThrottleServiceProvider'

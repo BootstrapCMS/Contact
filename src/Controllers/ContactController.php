@@ -16,14 +16,11 @@
 
 namespace GrahamCampbell\Contact\Controllers;
 
+use GrahamCampbell\Binput\Binput;
+use GrahamCampbell\Contact\Mailer;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\HTMLMin\Facades\HTMLMin;
-use GrahamCampbell\Queuing\Facades\Queuing;
 
 /**
  * This is the contact controller class.
@@ -37,12 +34,49 @@ use GrahamCampbell\Queuing\Facades\Queuing;
 class ContactController extends Controller
 {
     /**
+     * The mailer instance.
+     *
+     * @var \GrahamCampbell\Contact\Mailer
+     */
+    protected $mailer;
+
+    /**
+     * The binput instance.
+     *
+     * @var \GrahamCampbell\Binput\Binput
+     */
+    protected $binput;
+
+    /**
+     * The home url.
+     *
+     * @var string
+     */
+    protected $home;
+
+    /**
+     * The contact form path.
+     *
+     * @var string
+     */
+    protected $path;
+
+    /**
      * Create a new instance.
      *
+     * @param  \GrahamCampbell\Contact\Mailer  $mailer
+     * @param  \GrahamCampbell\Binput\Binput  $binput
+     * @param  string  $home
+     * @param  string  $path
      * @return void
      */
-    public function __construct()
+    public function __construct(Mailer $mailer, Binput $binput, $home, $path)
     {
+        $this->mailer = $mailer;
+        $this->binput = $binput;
+        $this->home = $home;
+        $this->path = $path;
+
         $this->beforeFilter('throttle.contact', array('only' => array('postSubmit')));
     }
 
@@ -53,8 +87,6 @@ class ContactController extends Controller
      */
     public function postSubmit()
     {
-        $input = Binput::only(array('first_name', 'last_name', 'email', 'message'));
-
         $rules = array(
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -62,51 +94,36 @@ class ContactController extends Controller
             'message'    => 'required'
         );
 
+        $input = $this->binput->only(array_keys($rules));
+
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
-            return Redirect::to(Config::get('graham-campbell/contact::path'))->withInput()->withErrors($val);
+            return Redirect::to($this->path)->withInput()->withErrors($val);
         }
 
-        $url = URL::to(Config::get('graham-campbell/core::home', '/'));
+        $this->mailer->send($input['first_name'], $input['last_name'], $input['email'], $input['message']);
 
-        $quote = HTMLMin::render(nl2br(e($input['message'])));
-
-        $email = Config::get('graham-campbell/contact::email');
-
-        if (!$email) {
-            return Redirect::to(Config::get('graham-campbell/contact::path'))->withInput()
-                ->with('error', 'We were unable to send the message. Please contact support directly.');
-        }
-
-        try {
-            $data = array(
-                'view'    => 'graham-campbell/contact::message',
-                'email'   => $email,
-                'subject' => Config::get('platform.name').' - New Message',
-                'url'     => $url,
-                'contact' => $input['email'],
-                'name'    => $input['first_name'].' '.$input['last_name'],
-                'quote'   => $quote
-            );
-
-            Queuing::pushMail($data);
-
-            $data = array(
-                'view'    => 'graham-campbell/contact::thanks',
-                'email'   => $input['email'],
-                'subject' => Config::get('platform.name').' - Notification',
-                'url'     => $url,
-                'name'    => $input['first_name'],
-                'quote'   => $quote
-            );
-
-            Queuing::pushMail($data);
-        } catch (\Exception $e) {
-            return Redirect::to(Config::get('graham-campbell/contact::path'))->withInput()
-                ->with('error', 'We were unable to send the message. Please contact support.');
-        }
-
-        return Redirect::to(Config::get('graham-campbell/core::home', '/'))
+        return Redirect::to($this->home)
             ->with('success', 'Your message was sent successfully. Thank you for contacting us.');
+    }
+
+    /**
+     * Return the mailer instance.
+     *
+     * @return \GrahamCampbell\Contact\Mailer
+     */
+    public function getMailer()
+    {
+        return $this->mailer;
+    }
+
+    /**
+     * Return the binput instance.
+     *
+     * @return \GrahamCampbell\Binput\Binput
+     */
+    public function getBinput()
+    {
+        return $this->binput;
     }
 }
