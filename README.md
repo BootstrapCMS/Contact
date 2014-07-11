@@ -48,7 +48,7 @@ This option (`'path'`) defines the path to the contact form. This is the page wh
 
 **Contact Form Email**
 
-This option (`'email'`) defines the email address to send contact form messages to. It can be a single address, or an array of email addresses. The default value for this setting is `null`.
+This option (`'email'`) defines the email address to send contact form messages to. It can be a single address, or an array of email addresses. The default value for this setting is `'admin@example.com'`.
 
 
 ## Usage
