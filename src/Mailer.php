@@ -51,6 +51,13 @@ class Mailer
     protected $path;
 
     /**
+     * The contact email.
+     *
+     * @var string
+     */
+    protected $email;
+
+    /**
      * The platform name.
      *
      * @var string
@@ -63,14 +70,16 @@ class Mailer
      * @param  \Illuminate\Mail\Mailer  $mail
      * @param  string  $home
      * @param  string  $path
+     * @param  string  $email
      * @param  string  $name
      * @return void
      */
-    public function __construct(Mail $mail, $home, $path, $name)
+    public function __construct(Mail $mail, $home, $path, $email, $name)
     {
         $this->mail = $mail;
         $this->home = $home;
         $this->path = $path;
+        $this->email = $email;
         $this->name = $name;
     }
 
