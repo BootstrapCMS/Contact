@@ -72,7 +72,7 @@ class ContactController extends Controller
      */
     public function __construct(Mailer $mailer, Binput $binput, $home, $path)
     {
-        $this->mailer = $mailer
+        $this->mailer = $mailer;
         $this->binput = $binput;
         $this->home = $home;
         $this->path = $path;
