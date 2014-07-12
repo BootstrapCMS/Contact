@@ -53,8 +53,7 @@ This option (`'email'`) defines the email address to send contact form messages 
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-Contact
-) for Laravel Contact.
+There is currently no usage documentation besides the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Contact.
 
 You will need to write your own contact form with this plugin. Laravel Contact simply provides you with the backend functionality to create a comment form. Laravel Contact will register the route `contact.post` which will accept `POST` requests to the path `contact`. Note that a basic form is included and can be pulled into one of your own views if you want it.
 
