@@ -57,7 +57,7 @@ Laravel Contact is designed to work with [Bootstrap CMS](https://github.com/Grah
 
 Laravel Contact provides you with the backend functionality (and email views) to create a comment form. You will need to write your own contact form front end with this plugin, although an example contact form is included (`'graham-campbell/contact::form'`). Laravel Contact will register the route `contact.post` which will accept `POST` requests to the path `contact`.
 
-Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Contact.
+The internals of Laravel Contact are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Contact.
 
 You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 
