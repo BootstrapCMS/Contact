@@ -106,24 +106,4 @@ class ContactController extends Controller
         return Redirect::to($this->home)
             ->with('success', 'Your message was sent successfully. Thank you for contacting us.');
     }
-
-    /**
-     * Return the mailer instance.
-     *
-     * @return \GrahamCampbell\Contact\Mailer
-     */
-    public function getMailer()
-    {
-        return $this->mailer;
-    }
-
-    /**
-     * Return the binput instance.
-     *
-     * @return \GrahamCampbell\Binput\Binput
-     */
-    public function getBinput()
-    {
-        return $this->binput;
-    }
 }
