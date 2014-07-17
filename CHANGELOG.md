@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Upgraded to laravel 4.2+
 * Patched xss vulnerability
+* Throttling improvements
 * Refactoring
 
 

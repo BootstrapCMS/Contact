@@ -88,10 +88,11 @@ class ContactServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\Contact\Controllers\ContactController', function ($app) {
             $mailer = $app->make('GrahamCampbell\Contact\Mailer');
             $binput = $app['binput'];
+            $throttler = $app['throttle']->get($app['request'], 2, 30);
             $home = $app['config']['graham-campbell/core::home'];
             $path = $app['config']['graham-campbell/contact::path'];
 
-            return new Controllers\ContactController($mailer, $binput, $home, $path);
+            return new Controllers\ContactController($mailer, $binput, $throttler, $home, $path);
         });
     }
 

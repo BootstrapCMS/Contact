@@ -21,6 +21,7 @@ use GrahamCampbell\Contact\Mailer;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
 
 /**
  * This is the contact controller class.
@@ -48,6 +49,13 @@ class ContactController extends Controller
     protected $binput;
 
     /**
+     * The throttler instance.
+     *
+     * @var \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
+     */
+    protected $throttler;
+
+    /**
      * The home url.
      *
      * @var string
@@ -66,14 +74,16 @@ class ContactController extends Controller
      *
      * @param  \GrahamCampbell\Contact\Mailer  $mailer
      * @param  \GrahamCampbell\Binput\Binput  $binput
+     * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
      * @param  string  $home
      * @param  string  $path
      * @return void
      */
-    public function __construct(Mailer $mailer, Binput $binput, $home, $path)
+    public function __construct(Mailer $mailer, Binput $binput, ThrottlerInterface $throttler, $home, $path)
     {
         $this->mailer = $mailer;
         $this->binput = $binput;
+        $this->throttler = $throttler;
         $this->home = $home;
         $this->path = $path;
 
@@ -100,6 +110,8 @@ class ContactController extends Controller
         if ($val->fails()) {
             return Redirect::to($this->path)->withInput()->withErrors($val);
         }
+
+        $this->throttler->hit();
 
         $this->mailer->send($input['first_name'], $input['last_name'], $input['email'], $input['message']);
 
