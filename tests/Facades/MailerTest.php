@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Contact;
+namespace GrahamCampbell\Tests\Contact\Facades;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use GrahamCampbell\Tests\Contact\AbstractTestCase;
+use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 
 /**
- * This is the service provider test class.
+ * This is the mailer facade test class.
  *
  * @package    Laravel-Contact
  * @author     Graham Campbell
@@ -27,12 +28,37 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Contact
  */
-class ServiceProviderTest extends AbstractTestCase
+class MailerTest extends AbstractTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use FacadeTestCaseTrait;
 
-    public function testMailerIsInjectable()
+    /**
+     * Get the facade accessor.
+     *
+     * @return string
+     */
+    protected function getFacadeAccessor()
     {
-        $this->assertIsInjectable('GrahamCampbell\Contact\Mailer');
+        return 'contact.mailer';
+    }
+
+    /**
+     * Get the facade class.
+     *
+     * @return string
+     */
+    protected function getFacadeClass()
+    {
+        return 'GrahamCampbell\Contact\Facades\Mailer';
+    }
+
+    /**
+     * Get the facade route.
+     *
+     * @return string
+     */
+    protected function getFacadeRoot()
+    {
+        return 'GrahamCampbell\Contact\Mailer';
     }
 }

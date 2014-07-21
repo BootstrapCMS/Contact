@@ -67,7 +67,7 @@ class ContactServiceProvider extends ServiceProvider
      */
     protected function registerContactMailer()
     {
-        $this->app->bind('GrahamCampbell\Contact\Mailer', function ($app) {
+        $this->app->bind('contact.mailer', function ($app) {
             $mail = $app['mailer'];
             $home = $app['config']['graham-campbell/core::home'];
             $path = $app['config']['graham-campbell/contact::path'];
@@ -76,6 +76,8 @@ class ContactServiceProvider extends ServiceProvider
 
             return new Mailer($mail, $home, $path, $email, $name);
         });
+
+        $this->app->alias('contact.mailer', 'GrahamCampbell\Contact\Mailer');
     }
 
     /**
@@ -86,13 +88,11 @@ class ContactServiceProvider extends ServiceProvider
     protected function registerContactController()
     {
         $this->app->bind('GrahamCampbell\Contact\Controllers\ContactController', function ($app) {
-            $mailer = $app->make('GrahamCampbell\Contact\Mailer');
-            $binput = $app['binput'];
             $throttler = $app['throttle']->get($app['request'], 2, 30);
             $home = $app['config']['graham-campbell/core::home'];
             $path = $app['config']['graham-campbell/contact::path'];
 
-            return new Controllers\ContactController($mailer, $binput, $throttler, $home, $path);
+            return new Controllers\ContactController($throttler, $home, $path);
         });
     }
 
@@ -104,7 +104,7 @@ class ContactServiceProvider extends ServiceProvider
     public function provides()
     {
         return array(
-            //
+            'contact.mailer'
         );
     }
 }

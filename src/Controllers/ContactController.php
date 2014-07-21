@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\Contact\Controllers;
 
-use GrahamCampbell\Binput\Binput;
-use GrahamCampbell\Contact\Mailer;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Facades\Binput\Binput;
+use GrahamCampbell\Contact\Facades\Mailer;
 use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
 
 /**
@@ -34,20 +34,6 @@ use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
  */
 class ContactController extends Controller
 {
-    /**
-     * The mailer instance.
-     *
-     * @var \GrahamCampbell\Contact\Mailer
-     */
-    protected $mailer;
-
-    /**
-     * The binput instance.
-     *
-     * @var \GrahamCampbell\Binput\Binput
-     */
-    protected $binput;
-
     /**
      * The throttler instance.
      *
@@ -72,17 +58,13 @@ class ContactController extends Controller
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Contact\Mailer  $mailer
-     * @param  \GrahamCampbell\Binput\Binput  $binput
      * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
      * @param  string  $home
      * @param  string  $path
      * @return void
      */
-    public function __construct(Mailer $mailer, Binput $binput, ThrottlerInterface $throttler, $home, $path)
+    public function __construct(ThrottlerInterface $throttler, $home, $path)
     {
-        $this->mailer = $mailer;
-        $this->binput = $binput;
         $this->throttler = $throttler;
         $this->home = $home;
         $this->path = $path;
@@ -104,7 +86,7 @@ class ContactController extends Controller
             'message'    => 'required'
         );
 
-        $input = $this->binput->only(array_keys($rules));
+        $input = Binput::only(array_keys($rules));
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
@@ -113,7 +95,7 @@ class ContactController extends Controller
 
         $this->throttler->hit();
 
-        $this->mailer->send($input['first_name'], $input['last_name'], $input['email'], $input['message']);
+        Mailer::send($input['first_name'], $input['last_name'], $input['email'], $input['message']);
 
         return Redirect::to($this->home)
             ->with('success', 'Your message was sent successfully. Thank you for contacting us.');
