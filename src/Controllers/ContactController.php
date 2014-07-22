@@ -16,12 +16,12 @@
 
 namespace GrahamCampbell\Contact\Controllers;
 
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Contact\Facades\Mailer;
+use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Facades\Binput\Binput;
-use GrahamCampbell\Contact\Facades\Mailer;
-use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
 
 /**
  * This is the contact controller class.
