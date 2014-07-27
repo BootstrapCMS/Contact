@@ -22,11 +22,9 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 /**
  * This is the mailer facade test class.
  *
- * @package    Laravel-Contact
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Contact
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md> Apache 2.0
  */
 class MailerTest extends AbstractTestCase
 {

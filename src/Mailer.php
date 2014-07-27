@@ -21,57 +21,56 @@ use Illuminate\Mail\Mailer as Mail;
 /**
  * This is the contact mailer class.
  *
- * @package    Laravel-Contact
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Contact
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md> Apache 2.0
  */
 class Mailer
 {
     /**
      * The mail instance.
      *
-     * @var \Illuminate\Mail\Mailer
+     * @type \Illuminate\Mail\Mailer
      */
     protected $mail;
 
     /**
      * The home url.
      *
-     * @var string
+     * @type string
      */
     protected $home;
 
     /**
      * The contact form path.
      *
-     * @var string
+     * @type string
      */
     protected $path;
 
     /**
      * The contact email.
      *
-     * @var string
+     * @type string
      */
     protected $email;
 
     /**
      * The platform name.
      *
-     * @var string
+     * @type string
      */
     protected $name;
 
     /**
      * Create a new instance.
      *
-     * @param  \Illuminate\Mail\Mailer  $mail
-     * @param  string  $home
-     * @param  string  $path
-     * @param  string  $email
-     * @param  string  $name
+     * @param \Illuminate\Mail\Mailer $mail
+     * @param string                  $home
+     * @param string                  $path
+     * @param string                  $email
+     * @param string                  $name
+     *
      * @return void
      */
     public function __construct(Mail $mail, $home, $path, $email, $name)
@@ -86,10 +85,11 @@ class Mailer
     /**
      * Send the emails.
      *
-     * @param  string  $first
-     * @param  string  $last
-     * @param  string  $email
-     * @param  string  $message
+     * @param string $first
+     * @param string $last
+     * @param string $email
+     * @param string $message
+     *
      * @return void
      */
     public function send($first, $last, $email, $message)
@@ -106,9 +106,10 @@ class Mailer
     /**
      * Send the message.
      *
-     * @param  string  $name
-     * @param  string  $email
-     * @param  string  $quote
+     * @param string $name
+     * @param string $email
+     * @param string $quote
+     *
      * @return void
      */
     protected function sendMessage($name, $email, $quote)
@@ -123,7 +124,7 @@ class Mailer
             'quote'    => $quote
         );
 
-        $this->mail->queue('graham-campbell/contact::message', $mail, function($message) use ($mail) {
+        $this->mail->queue('graham-campbell/contact::message', $mail, function ($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
     }
@@ -131,9 +132,10 @@ class Mailer
     /**
      * Sent the thanks message.
      *
-     * @param  string  $name
-     * @param  string  $email
-     * @param  string  $quote
+     * @param string $name
+     * @param string $email
+     * @param string $quote
+     *
      * @return void
      */
     protected function sendThanks($name, $email, $quote)
@@ -147,7 +149,7 @@ class Mailer
             'quote'    => $quote
         );
 
-        $this->mail->queue('graham-campbell/contact::thanks', $mail, function($message) use ($mail) {
+        $this->mail->queue('graham-campbell/contact::thanks', $mail, function ($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
     }

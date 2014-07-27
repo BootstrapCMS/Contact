@@ -26,41 +26,40 @@ use Illuminate\Support\Facades\Validator;
 /**
  * This is the contact controller class.
  *
- * @package    Laravel-Contact
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Contact
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Contact/blob/master/LICENSE.md> Apache 2.0
  */
 class ContactController extends Controller
 {
     /**
      * The throttler instance.
      *
-     * @var \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
+     * @type \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
      */
     protected $throttler;
 
     /**
      * The home url.
      *
-     * @var string
+     * @type string
      */
     protected $home;
 
     /**
      * The contact form path.
      *
-     * @var string
+     * @type string
      */
     protected $path;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
-     * @param  string  $home
-     * @param  string  $path
+     * @param \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface $throttler
+     * @param string                                                 $home
+     * @param string                                                 $path
+     *
      * @return void
      */
     public function __construct(ThrottlerInterface $throttler, $home, $path)
