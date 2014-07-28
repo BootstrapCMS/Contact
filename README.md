@@ -38,7 +38,9 @@ Laravel Contact supports optional configuration.
 
 To get started, first publish the package config file:
 
-    php artisan config:publish graham-campbell/contact
+```bash
+$ php artisan config:publish graham-campbell/contact
+```
 
 There are two config options:
 
