@@ -35,21 +35,21 @@ class ContactController extends Controller
     /**
      * The throttler instance.
      *
-     * @type \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
+     * @var \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
      */
     protected $throttler;
 
     /**
      * The home url.
      *
-     * @type string
+     * @var string
      */
     protected $home;
 
     /**
      * The contact form path.
      *
-     * @type string
+     * @var string
      */
     protected $path;
 

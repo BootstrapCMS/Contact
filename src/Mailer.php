@@ -30,35 +30,35 @@ class Mailer
     /**
      * The mail instance.
      *
-     * @type \Illuminate\Mail\Mailer
+     * @var \Illuminate\Mail\Mailer
      */
     protected $mail;
 
     /**
      * The home url.
      *
-     * @type string
+     * @var string
      */
     protected $home;
 
     /**
      * The contact form path.
      *
-     * @type string
+     * @var string
      */
     protected $path;
 
     /**
      * The contact email.
      *
-     * @type string
+     * @var string
      */
     protected $email;
 
     /**
      * The platform name.
      *
-     * @type string
+     * @var string
      */
     protected $name;
 
