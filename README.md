@@ -2,11 +2,11 @@ Laravel Contact
 ===============
 
 
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Contact/master.svg?style=flat)](https://travis-ci.org/GrahamCampbell/Laravel-Contact)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Contact.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Contact.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Contact.svg?style=flat)](https://github.com/GrahamCampbell/Laravel-Contact/releases)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Contact/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Laravel-Contact)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Contact.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Contact.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Contact.svg?style=flat-square)](https://github.com/GrahamCampbell/Laravel-Contact/releases)
 
 
 ## Introduction
