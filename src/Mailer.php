@@ -96,7 +96,7 @@ class Mailer
     {
         $quote = nl2br($message);
 
-        $name = $first . ' ' . $last;
+        $name = $first.' '.$last;
 
         $this->sendMessage($name, $email, $quote);
 
