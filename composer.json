@@ -18,7 +18,7 @@
         "illuminate/view": "~4.1",
         "graham-campbell/core": "~1.0",
         "graham-campbell/binput": "~2.0",
-        "graham-campbell/throttle": "~1.0"
+        "graham-campbell/throttle": "~2.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0"
