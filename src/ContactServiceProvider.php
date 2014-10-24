@@ -102,7 +102,7 @@ class ContactServiceProvider extends ServiceProvider
     public function provides()
     {
         return array(
-            'contact.mailer'
+            'contact.mailer',
         );
     }
 }

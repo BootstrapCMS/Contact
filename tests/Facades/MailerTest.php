@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Tests\Contact\Facades;
 
-use GrahamCampbell\Tests\Contact\AbstractTestCase;
 use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Tests\Contact\AbstractTestCase;
 
 /**
  * This is the mailer facade test class.

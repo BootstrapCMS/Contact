@@ -82,7 +82,7 @@ class ContactController extends Controller
             'first_name' => 'required',
             'last_name'  => 'required',
             'email'      => 'required',
-            'message'    => 'required'
+            'message'    => 'required',
         );
 
         $input = Binput::only(array_keys($rules));

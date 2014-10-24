@@ -121,7 +121,7 @@ class Mailer
             'url'      => $this->home,
             'contact'  => $email,
             'name'     => $name,
-            'quote'    => $quote
+            'quote'    => $quote,
         );
 
         $this->mail->queue('graham-campbell/contact::message', $mail, function ($message) use ($mail) {
@@ -146,7 +146,7 @@ class Mailer
             'platform' => $this->name,
             'url'      => $this->home,
             'name'     => $name,
-            'quote'    => $quote
+            'quote'    => $quote,
         );
 
         $this->mail->queue('graham-campbell/contact::thanks', $mail, function ($message) use ($mail) {

@@ -38,7 +38,7 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
             'GrahamCampbell\Core\CoreServiceProvider',
             'GrahamCampbell\Security\SecurityServiceProvider',
             'GrahamCampbell\Binput\BinputServiceProvider',
-            'GrahamCampbell\Throttle\ThrottleServiceProvider'
+            'GrahamCampbell\Throttle\ThrottleServiceProvider',
         );
     }
 
