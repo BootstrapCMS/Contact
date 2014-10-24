@@ -1,17 +1,17 @@
 Laravel Contact
 ===============
 
-
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Contact/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Laravel-Contact)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Contact.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Contact.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Contact.svg?style=flat-square)](https://github.com/GrahamCampbell/Laravel-Contact/releases)
-
-
-## Introduction
-
 Laravel Contact was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a contact form backend for [Laravel 4.1/4.2](http://laravel.com). It utilises a few of my packages including [Laravel Throttle](https://github.com/GrahamCampbell/Laravel-Throttle) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Contact/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+
+![Laravel Contact](https://cloud.githubusercontent.com/assets/2829600/4432322/c18f8d40-468c-11e4-97f8-8f0e7935a40a.PNG)
+
+<p align="center">
+<a href="https://travis-ci.org/GrahamCampbell/Laravel-Contact"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-Contact/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Contact.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Contact"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Contact.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Laravel-Contact/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-Contact.svg?style=flat-square" alt="Latest Version"></img></a>
+</p>
 
 
 ## Installation
