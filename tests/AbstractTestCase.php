@@ -34,12 +34,12 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
      */
     protected function getRequiredServiceProviders()
     {
-        return array(
+        return [
             'GrahamCampbell\Core\CoreServiceProvider',
             'GrahamCampbell\Security\SecurityServiceProvider',
             'GrahamCampbell\Binput\BinputServiceProvider',
             'GrahamCampbell\Throttle\ThrottleServiceProvider',
-        );
+        ];
     }
 
     /**

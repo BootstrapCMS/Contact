@@ -68,7 +68,7 @@ class ContactController extends Controller
         $this->home = $home;
         $this->path = $path;
 
-        $this->beforeFilter('throttle.contact', array('only' => array('postSubmit')));
+        $this->beforeFilter('throttle.contact', ['only' => ['postSubmit']]);
     }
 
     /**
@@ -78,12 +78,12 @@ class ContactController extends Controller
      */
     public function postSubmit()
     {
-        $rules = array(
+        $rules = [
             'first_name' => 'required',
             'last_name'  => 'required',
             'email'      => 'required',
             'message'    => 'required',
-        );
+        ];
 
         $input = Binput::only(array_keys($rules));
 
