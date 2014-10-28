@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Contact\Controllers;
+namespace GrahamCampbell\Contact\Http\Controllers;
 
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Contact\Facades\Mailer;

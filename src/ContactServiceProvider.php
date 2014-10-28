@@ -85,12 +85,12 @@ class ContactServiceProvider extends ServiceProvider
      */
     protected function registerContactController()
     {
-        $this->app->bind('GrahamCampbell\Contact\Controllers\ContactController', function ($app) {
+        $this->app->bind('GrahamCampbell\Contact\Http\Controllers\ContactController', function ($app) {
             $throttler = $app['throttle']->get($app['request'], 2, 30);
             $home = $app['config']['graham-campbell/core::home'];
             $path = $app['config']['graham-campbell/contact::path'];
 
-            return new Controllers\ContactController($throttler, $home, $path);
+            return new Http\Controllers\ContactController($throttler, $home, $path);
         });
     }
 
