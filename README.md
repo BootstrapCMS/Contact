@@ -37,6 +37,10 @@ Once Laravel Contact is installed, you need to register the service provider. Op
 
 * `'GrahamCampbell\Contact\ContactServiceProvider'`
 
+#### Looking for a laravel 5 compatable version?
+
+Checkout the [master branch](https://github.com/GrahamCampbell/Laravel-Contact/tree/master), installable by requiring `"graham-campbell/contact": "0.3.*"`.
+
 
 ## Configuration
 
