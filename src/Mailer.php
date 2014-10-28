@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Contact;
 
-use Illuminate\Mail\Mailer as Mail;
+use Illuminate\Contracts\Mail\MailQueue as Mail;
 
 /**
  * This is the contact mailer class.
@@ -30,7 +30,7 @@ class Mailer
     /**
      * The mail instance.
      *
-     * @var \Illuminate\Mail\Mailer
+     * @var \lluminate\Contracts\Mail\MailQueue
      */
     protected $mail;
 
@@ -65,11 +65,11 @@ class Mailer
     /**
      * Create a new instance.
      *
-     * @param \Illuminate\Mail\Mailer $mail
-     * @param string                  $home
-     * @param string                  $path
-     * @param string                  $email
-     * @param string                  $name
+     * @param \lluminate\Contracts\Mail\MailQueue $mail
+     * @param string                              $home
+     * @param string                              $path
+     * @param string                              $email
+     * @param string                              $name
      *
      * @return void
      */
@@ -157,7 +157,7 @@ class Mailer
     /**
      * Return the mail instance.
      *
-     * @return \Illuminate\Mail\Mailer
+     * @return \lluminate\Contracts\Mail\MailQueue
      */
     public function getMail()
     {
