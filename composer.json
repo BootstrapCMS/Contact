@@ -24,9 +24,6 @@
     "require-dev": {
         "graham-campbell/testbench": "~2.0"
     },
-    "suggest": {
-       "graham-campbell/queuing": "Improved mailer performance."
-    },
     "autoload": {
         "psr-4": {
             "GrahamCampbell\\Contact\\": "src/"
