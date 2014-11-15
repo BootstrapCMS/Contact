@@ -15,8 +15,11 @@
  */
 
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
-Route::filter('throttle.contact', function ($route, $request) {
+$router->filter('throttle.contact', function ($route, $request) {
     // check if we've reached the rate limit, but don't hit the throttle yet
     // we can hit the throttle later on in the if validation passes
     if (!Throttle::check($request, 2, 30)) {

@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\Contact;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -43,10 +44,24 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->package('graham-campbell/contact', 'graham-campbell/contact', __DIR__);
 
-        include __DIR__.'/routes.php';
-        include __DIR__.'/filters.php';
+        $this->setupRoutes($this->app['router']);
     }
 
+    /**
+     * Setup the routes.
+     *
+     * @param \Illuminate\Routing\Router $router
+     *
+     * @return void
+     */
+    public function setupRoutes(Router $router)
+    {
+        require __DIR__.'/Http/filters.php';
+
+        $router->group(['namespace' => 'GrahamCampbell\Contact\Http\Controllers'], function (Router $router) {
+            require __DIR__.'/Http/routes.php';
+        });
+    }
     /**
      * Register the service provider.
      *

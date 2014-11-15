@@ -14,7 +14,4 @@
  * limitations under the License.
  */
 
-Route::post('contact', [
-    'as' => 'contact.post',
-    'uses' => 'GrahamCampbell\Contact\Http\Controllers\ContactController@postSubmit',
-]);
+$router->post('contact', ['as' => 'contact.post', 'uses' => 'ContactController@postSubmit']);
