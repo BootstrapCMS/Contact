@@ -62,10 +62,14 @@ This option (`'path'`) defines the path to the contact form. This is the page wh
 
 This option (`'email'`) defines the email address to send contact form messages to. It can be a single address, or an array of email addresses. The default value for this setting is `'admin@example.com'`.
 
+##### Additional Configuration
+
+You may want to check out the config for `graham-campbell/core` too.
+
 
 ## Usage
 
-Laravel Contact is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/platform.php) and [config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
+Laravel Contact is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as configuration and knowledge of the `app:install` and `app:update ` commands is required.
 
 Laravel Contact provides you with the backend functionality (and email views) to create a comment form. You will need to write your own contact form front end with this plugin, although an example contact form is included (`'graham-campbell/contact::form'`). Laravel Contact will register the route `contact.post` which will accept `POST` requests to the path `contact`.
 

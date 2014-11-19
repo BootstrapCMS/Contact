@@ -85,7 +85,7 @@ class ContactServiceProvider extends ServiceProvider
             $home = $app['config']['graham-campbell/core::home'];
             $path = $app['config']['graham-campbell/contact::path'];
             $email = $app['config']['graham-campbell/contact::email'];
-            $name = $app['config']['platform.name'];
+            $name = $app['config']['graham-campbell/core::platform.name'];
 
             return new Mailer($mail, $home, $path, $email, $name);
         });
