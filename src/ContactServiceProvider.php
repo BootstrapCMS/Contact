@@ -62,6 +62,7 @@ class ContactServiceProvider extends ServiceProvider
             require __DIR__.'/Http/routes.php';
         });
     }
+
     /**
      * Register the service provider.
      *
