@@ -2,7 +2,7 @@
     "name": "graham-campbell/contact",
     "description": "Contact Is A Contact Form Backend For Laravel 4.1/4.2",
     "keywords": ["laravel", "framework", "contact", "form", "contact form", "Contact", "Laravel Contact", "Laravel-Contact", "Graham Campbell", "GrahamCampbell"],
-    "license": "Apache-2.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "Graham Campbell",
