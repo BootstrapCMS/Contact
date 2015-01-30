@@ -1,4 +1,4 @@
-@extends(Config::get('graham-campbell/core::email'))
+@extends(Config::get('core.email'))
 
 @section('content')
 <p>{{ $name }} has sent you a message through the contact form on <a href="{{ $url }}">{{ $platform }}</a>.<p>

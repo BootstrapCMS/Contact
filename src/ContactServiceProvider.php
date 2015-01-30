@@ -22,22 +22,31 @@ use Illuminate\Support\ServiceProvider;
 class ContactServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
-     * Bootstrap the application events.
+     * Boot the service provider.
      *
      * @return void
      */
     public function boot()
     {
-        $this->package('graham-campbell/contact', 'graham-campbell/contact', __DIR__);
+        $this->setupPackage();
 
-        $this->setupRoutes($this->app['router']);
+        $this->setupRoutes($this->app->router);
+    }
+
+    /**
+     * Setup the package.
+     *
+     * @return void
+     */
+    protected function setupPackage()
+    {
+        $source = realpath(__DIR__.'/../config/contact.php');
+
+        $this->publishes([$source => config_path('contact.php')]);
+
+        $this->mergeConfigFrom($source, 'contact');
+
+        $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'contact');
     }
 
     /**
@@ -76,10 +85,10 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->app->bind('contact.mailer', function ($app) {
             $mail = $app['mailer'];
-            $home = $app['config']['graham-campbell/core::home'];
-            $path = $app['config']['graham-campbell/contact::path'];
-            $email = $app['config']['graham-campbell/contact::email'];
-            $name = $app['config']['graham-campbell/core::name'];
+            $home = $app['config']['core.home'];
+            $path = $app['config']['contact.path'];
+            $email = $app['config']['contact.email'];
+            $name = $app['config']['core.name'];
 
             return new Mailer($mail, $home, $path, $email, $name);
         });
@@ -96,8 +105,8 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\Contact\Http\Controllers\ContactController', function ($app) {
             $throttler = $app['throttle']->get($app['request'], 2, 30);
-            $home = $app['config']['graham-campbell/core::home'];
-            $path = $app['config']['graham-campbell/contact::path'];
+            $home = $app['config']['core.home'];
+            $path = $app['config']['contact.path'];
 
             return new Http\Controllers\ContactController($throttler, $home, $path);
         });

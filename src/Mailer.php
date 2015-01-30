@@ -117,7 +117,7 @@ class Mailer
             'quote'    => $quote,
         ];
 
-        $this->mail->queue('graham-campbell/contact::message', $mail, function ($message) use ($mail) {
+        $this->mail->queue('contact::message', $mail, function ($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
     }
@@ -142,7 +142,7 @@ class Mailer
             'quote'    => $quote,
         ];
 
-        $this->mail->queue('graham-campbell/contact::thanks', $mail, function ($message) use ($mail) {
+        $this->mail->queue('contact::thanks', $mail, function ($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
     }

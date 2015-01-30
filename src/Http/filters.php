@@ -20,6 +20,6 @@ $router->filter('throttle.contact', function ($route, $request) {
     if (!Throttle::check($request, 2, 30)) {
         Session::flash('error', 'You have made too many submissions recently. Please try again later.');
 
-        return Redirect::to(Config::get('graham-campbell/contact::path'))->withInput();
+        return Redirect::to(Config::get('contact.path'))->withInput();
     }
 });

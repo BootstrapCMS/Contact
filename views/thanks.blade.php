@@ -1,4 +1,4 @@
-@extends(Config::get('graham-campbell/core::email'))
+@extends(Config::get('core.email'))
 
 @section('content')
 <p>Thank you {{ $name }} for contacting <a href="{{ $url }}">{{ $platform}}</a>.</p>
