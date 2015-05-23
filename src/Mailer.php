@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Contact.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,7 @@ use Illuminate\Contracts\Mail\MailQueue as Mail;
 /**
  * This is the contact mailer class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class Mailer
 {
