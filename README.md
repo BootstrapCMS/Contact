@@ -1,7 +1,7 @@
 Laravel Contact
 ===============
 
-Laravel Contact was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a contact form backend for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Throttle](https://github.com/GrahamCampbell/Laravel-Throttle) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/Contact/releases), [license](LICENSE), [api docs](http://docs.gjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel Contact was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a contact form backend for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Throttle](https://github.com/GrahamCampbell/Laravel-Throttle) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/Contact/releases), [license](LICENSE), [api docs](https://docs.gjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel Contact](https://cloud.githubusercontent.com/assets/2829600/4432323/c18fe95c-468c-11e4-940d-c41718dfbb73.PNG)
 
@@ -75,7 +75,7 @@ Laravel Contact is designed to work with [Bootstrap CMS](https://github.com/Boot
 
 Laravel Contact provides you with the backend functionality (and email views) to create a comment form. You will need to write your own contact form front end with this plugin, although an example contact form is included (`'contact.form'`). Laravel Contact will register the route `contact.post` which will accept `POST` requests to the path `contact`.
 
-The internals of Laravel Contact are not documented here, but feel free to check out the [API Documentation](http://docs.gjcampbell.co.uk).
+The internals of Laravel Contact are not documented here, but feel free to check out the [API Documentation](https://docs.gjcampbell.co.uk).
 
 
 ## License
