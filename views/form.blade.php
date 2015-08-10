@@ -1,4 +1,6 @@
-{!! Form::open(array('url' => URL::route('contact.post'), 'method' => 'POST', 'class' => 'form-horizontal')) !!}
+<form class="form-horizontal" action="{{ URL::route('contact.post') }}" method="POST">
+
+    {{ csrf_field() }}
 
     <div class="form-group{!! ($errors->has('first_name')) ? ' has-error' : '' !!}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="first_name">First Name</label>
@@ -39,4 +41,4 @@
     </div>
 </div>
 
-{!! Form::close() !!}
+</form>
