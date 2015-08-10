@@ -11,7 +11,7 @@
 
 namespace GrahamCampbell\Contact;
 
-use Illuminate\Contracts\Mail\MailQueue as Mail;
+use Illuminate\Contracts\Mail\MailQueue;
 
 /**
  * This is the contact mailer class.
@@ -66,7 +66,7 @@ class Mailer
      *
      * @return void
      */
-    public function __construct(Mail $mail, $home, $path, $email, $name)
+    public function __construct(MailQueue $mail, $home, $path, $email, $name)
     {
         $this->mail = $mail;
         $this->home = $home;

@@ -11,6 +11,7 @@
 
 namespace GrahamCampbell\Contact;
 
+use GrahamCampbell\Contact\Http\Controllers\ContactController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -93,7 +94,7 @@ class ContactServiceProvider extends ServiceProvider
             return new Mailer($mail, $home, $path, $email, $name);
         });
 
-        $this->app->alias('contact.mailer', 'GrahamCampbell\Contact\Mailer');
+        $this->app->alias('contact.mailer', Mailer::class);
     }
 
     /**
@@ -103,11 +104,11 @@ class ContactServiceProvider extends ServiceProvider
      */
     protected function registerContactController()
     {
-        $this->app->bind('GrahamCampbell\Contact\Http\Controllers\ContactController', function ($app) {
+        $this->app->bind(ContactController::class, function ($app) {
             $throttler = $app['throttle']->get($app['request'], 2, 30);
             $path = $app['config']['contact.path'];
 
-            return new Http\Controllers\ContactController($throttler, $path);
+            return new ContactController($throttler, $path);
         });
     }
 
