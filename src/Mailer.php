@@ -23,7 +23,7 @@ class Mailer
     /**
      * The mail instance.
      *
-     * @var \lluminate\Contracts\Mail\MailQueue
+     * @var \Illuminate\Contracts\Mail\MailQueue
      */
     protected $mail;
 
@@ -58,11 +58,11 @@ class Mailer
     /**
      * Create a new instance.
      *
-     * @param \lluminate\Contracts\Mail\MailQueue $mail
-     * @param string                              $home
-     * @param string                              $path
-     * @param string                              $email
-     * @param string                              $name
+     * @param \Illuminate\Contracts\Mail\MailQueue $mail
+     * @param string                               $home
+     * @param string                               $path
+     * @param string                               $email
+     * @param string                               $name
      *
      * @return void
      */
@@ -150,7 +150,7 @@ class Mailer
     /**
      * Return the mail instance.
      *
-     * @return \lluminate\Contracts\Mail\MailQueue
+     * @return \Illuminate\Contracts\Mail\MailQueue
      */
     public function getMail()
     {
