@@ -11,7 +11,9 @@
 
 namespace GrahamCampbell\Tests\Contact\Facades;
 
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Contact\Facades\Mailer as MailerFacade;
+use GrahamCampbell\Contact\Mailer;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Contact\AbstractTestCase;
 
 /**
@@ -21,7 +23,7 @@ use GrahamCampbell\Tests\Contact\AbstractTestCase;
  */
 class MailerTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
+    use FacadeTrait;
 
     /**
      * Get the facade accessor.
@@ -40,7 +42,7 @@ class MailerTest extends AbstractTestCase
      */
     protected function getFacadeClass()
     {
-        return 'GrahamCampbell\Contact\Facades\Mailer';
+        return MailerFacade::class;
     }
 
     /**
@@ -50,6 +52,6 @@ class MailerTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Contact\Mailer';
+        return Mailer::class;
     }
 }

@@ -11,7 +11,11 @@
 
 namespace GrahamCampbell\Tests\Contact;
 
+use GrahamCampbell\Binput\BinputServiceProvider;
+use GrahamCampbell\Contact\ContactServiceProvider;
+use GrahamCampbell\Security\SecurityServiceProvider;
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
+use GrahamCampbell\Throttle\ThrottleServiceProvider;
 
 /**
  * This is the abstract test case class.
@@ -20,14 +24,6 @@ use GrahamCampbell\TestBench\AbstractPackageTestCase;
  */
 abstract class AbstractTestCase extends AbstractPackageTestCase
 {
-    /**
-     * @before
-     */
-    public function setUpAppKey()
-    {
-        $this->app->config->set('app.key', str_repeat('A', 32));
-    }
-
     /**
      * Get the required service providers.
      *
@@ -38,9 +34,9 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
     protected function getRequiredServiceProviders($app)
     {
         return [
-            'GrahamCampbell\Security\SecurityServiceProvider',
-            'GrahamCampbell\Binput\BinputServiceProvider',
-            'GrahamCampbell\Throttle\ThrottleServiceProvider',
+            SecurityServiceProvider::class,
+            BinputServiceProvider::class,
+            ThrottleServiceProvider::class,
         ];
     }
 
@@ -53,6 +49,6 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\Contact\ContactServiceProvider';
+        return ContactServiceProvider::class;
     }
 }

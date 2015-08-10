@@ -11,7 +11,8 @@
 
 namespace GrahamCampbell\Tests\Contact;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use GrahamCampbell\Contact\Mailer;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
  * This is the service provider test class.
@@ -20,10 +21,10 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  */
 class ServiceProviderTest extends AbstractTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use ServiceProviderTrait;
 
     public function testMailerIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Contact\Mailer');
+        $this->assertIsInjectable(Mailer::class);
     }
 }
