@@ -49,7 +49,7 @@ $ php artisan vendor:publish
 
 This will create a `config/contact.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
-There are two config options:
+There are a few config options:
 
 ##### Path To The Form
 
@@ -58,6 +58,10 @@ This option (`'path'`) defines the path to the contact form. This is the page wh
 ##### Contact Form Email
 
 This option (`'email'`) defines the email address to send contact form messages to. It can be a single address, or an array of email addresses. The default value for this setting is `'admin@example.com'`.
+
+##### Email Layout
+
+This option (`'layout'`) defines the layout to extend when building views. The default value for this setting is `'layouts.default'`.
 
 ##### Additional Configuration
 
