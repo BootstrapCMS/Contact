@@ -37,10 +37,6 @@ Once Laravel Contact is installed, you need to register the service provider. Op
 
 * `'GrahamCampbell\Contact\ContactServiceProvider'`
 
-#### Looking for a laravel 4 compatable version?
-
-Checkout the [0.2 branch](https://github.com/BootstrapCMS/Contact/tree/master), installable by requiring `"graham-campbell/contact": "0.2.*"`.
-
 
 ## Configuration
 
