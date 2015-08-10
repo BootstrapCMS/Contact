@@ -1,7 +1,7 @@
 Laravel Contact
 ===============
 
-Laravel Contact was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a contact form backend for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Throttle](https://github.com/GrahamCampbell/Laravel-Throttle) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/Contact/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
+Laravel Contact was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a contact form backend for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Throttle](https://github.com/GrahamCampbell/Laravel-Throttle) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [releases](https://github.com/BootstrapCMS/Contact/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel Contact](https://cloud.githubusercontent.com/assets/2829600/4432323/c18fe95c-468c-11e4-940d-c41718dfbb73.PNG)
 
