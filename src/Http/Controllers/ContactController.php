@@ -33,13 +33,6 @@ class ContactController extends Controller
     protected $throttler;
 
     /**
-     * The home url.
-     *
-     * @var string
-     */
-    protected $home;
-
-    /**
      * The contact form path.
      *
      * @var string
@@ -50,15 +43,13 @@ class ContactController extends Controller
      * Create a new instance.
      *
      * @param \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface $throttler
-     * @param string                                                 $home
      * @param string                                                 $path
      *
      * @return void
      */
-    public function __construct(ThrottlerInterface $throttler, $home, $path)
+    public function __construct(ThrottlerInterface $throttler, $path)
     {
         $this->throttler = $throttler;
-        $this->home = $home;
         $this->path = $path;
 
         $this->beforeFilter('throttle.contact', ['only' => ['postSubmit']]);
@@ -81,6 +72,7 @@ class ContactController extends Controller
         $input = Binput::only(array_keys($rules));
 
         $val = Validator::make($input, $rules);
+
         if ($val->fails()) {
             return Redirect::to($this->path)->withInput()->withErrors($val);
         }
@@ -89,7 +81,6 @@ class ContactController extends Controller
 
         Mailer::send($input['first_name'], $input['last_name'], $input['email'], $input['message']);
 
-        return Redirect::to($this->home)
-            ->with('success', 'Your message was sent successfully. Thank you for contacting us.');
+        return Redirect::to('/')->with('success', 'Your message was sent successfully. Thank you for contacting us.');
     }
 }

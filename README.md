@@ -28,7 +28,6 @@ You'll then need to run `composer install` or `composer update` to download it a
 
 You will need to register a few service providers before you attempt to load the Laravel Contact service provider. Open up `config/app.php` and add the following to the `providers` key.
 
-* `'GrahamCampbell\Core\CoreServiceProvider'`
 * `'GrahamCampbell\Security\SecurityServiceProvider'`
 * `'GrahamCampbell\Binput\BinputServiceProvider'`
 * `'GrahamCampbell\Throttle\ThrottleServiceProvider'`
@@ -62,7 +61,7 @@ This option (`'email'`) defines the email address to send contact form messages 
 
 ##### Additional Configuration
 
-You may want to check out the config for `graham-campbell/core` too.
+You will need to add a `'name'` key to your app config to set the application name.
 
 
 ## Usage

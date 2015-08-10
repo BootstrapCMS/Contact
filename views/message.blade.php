@@ -1,4 +1,4 @@
-@extends(Config::get('core.email'))
+@extends(Config::get('contact.layout'))
 
 @section('content')
 <p>{{ $name }} has sent you a message through the contact form on <a href="{{ $url }}">{{ $platform }}</a>.<p>

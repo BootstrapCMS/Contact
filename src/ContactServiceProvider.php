@@ -85,10 +85,10 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->app->bind('contact.mailer', function ($app) {
             $mail = $app['mailer'];
-            $home = $app['config']['core.home'];
+            $home = $app['url']->to('/');
             $path = $app['config']['contact.path'];
             $email = $app['config']['contact.email'];
-            $name = $app['config']['core.name'];
+            $name = $app['config']['app.name'];
 
             return new Mailer($mail, $home, $path, $email, $name);
         });
@@ -105,10 +105,9 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\Contact\Http\Controllers\ContactController', function ($app) {
             $throttler = $app['throttle']->get($app['request'], 2, 30);
-            $home = $app['config']['core.home'];
             $path = $app['config']['contact.path'];
 
-            return new Http\Controllers\ContactController($throttler, $home, $path);
+            return new Http\Controllers\ContactController($throttler, $path);
         });
     }
 
