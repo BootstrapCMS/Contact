@@ -61,7 +61,7 @@ This option (`'email'`) defines the email address to send contact form messages 
 
 ##### Email Layout
 
-This option (`'layout'`) defines the layout to extend when building views. The default value for this setting is `'layouts.default'`.
+This option (`'layout'`) defines the layout to extend when building email views. The default value for this setting is `'layouts.default'`.
 
 ##### Additional Configuration
 
