@@ -18,7 +18,7 @@ $router->filter('throttle.contact', function ($route, $request) {
     // check if we've reached the rate limit, but don't hit the throttle yet
     // we can hit the throttle later on in the if validation passes
     if (!Throttle::check($request, 2, 30)) {
-        Session::flash('error', 'You have made too many submissions recently. Please try again later.');
+        Session::flash('error', trans('contact.you_have_made_too_many_submissions_recently'));
 
         return Redirect::to(Config::get('contact.path'))->withInput();
     }
