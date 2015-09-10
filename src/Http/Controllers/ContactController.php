@@ -81,6 +81,6 @@ class ContactController extends Controller
 
         Mailer::send($input['first_name'], $input['last_name'], $input['email'], $input['message']);
 
-        return Redirect::to('/')->with('success', 'Your message was sent successfully. Thank you for contacting us.');
+        return Redirect::to('/')->with('success', trans('contact.your_message_was_sent_successfully'));
     }
 }

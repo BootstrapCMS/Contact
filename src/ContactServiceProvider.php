@@ -41,11 +41,18 @@ class ContactServiceProvider extends ServiceProvider
      */
     protected function setupPackage()
     {
-        $source = realpath(__DIR__.'/../config/contact.php');
+        $configuration = realpath(__DIR__.'/../config/contact.php');
 
-        $this->publishes([$source => config_path('contact.php')]);
+        $language = realpath(__DIR__.'/../lang/'.\Lang::getLocale().'/contact.php');
 
-        $this->mergeConfigFrom($source, 'contact');
+        $language_folder = $language ? \Lang::getLocale() : 'en';
+
+        $language = $language ? $language : realpath(__DIR__.'/../lang/en/contact.php');
+
+        $this->publishes([$configuration => config_path('contact.php'),
+                          $language      => base_path('resources/lang/'.$language_folder.'/contact.php'), ]);
+
+        $this->mergeConfigFrom($configuration, 'contact');
 
         $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'contact');
     }

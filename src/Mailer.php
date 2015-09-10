@@ -109,7 +109,7 @@ class Mailer
     {
         $mail = [
             'email'    => $this->email,
-            'subject'  => $this->name.' - New Message',
+            'subject'  => $this->name.' - '.trans('contact.new_message'),
             'platform' => $this->name,
             'url'      => $this->home,
             'contact'  => $email,
@@ -135,7 +135,7 @@ class Mailer
     {
         $mail = [
             'email'    => $email,
-            'subject'  => $this->name.' - Notification',
+            'subject'  => $this->name.' - '.trans('contact.notification'),
             'platform' => $this->name,
             'url'      => $this->home,
             'name'     => $name,
