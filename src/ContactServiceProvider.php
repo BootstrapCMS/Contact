@@ -48,7 +48,7 @@ class ContactServiceProvider extends ServiceProvider
         $this->publishes([$configuration => config_path('contact.php'),
                           $language      => base_path('resources/lang/'.\Lang::getLocale().'/contact.php'), ]);
 
-        $this->mergeConfigFrom($source, 'contact');
+        $this->mergeConfigFrom($configuration, 'contact');
 
         $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'contact');
     }
