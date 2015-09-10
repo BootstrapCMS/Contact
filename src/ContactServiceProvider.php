@@ -43,10 +43,14 @@ class ContactServiceProvider extends ServiceProvider
     {
         $configuration = realpath(__DIR__.'/../config/contact.php');
 
-        $language = realpath(__DIR__.'/../lang/contact.php');
+        $language = realpath(__DIR__.'/../lang/'.\Lang::getLocale().'/contact.php');
+
+        $language_folder = $language ? \Lang::getLocale() : 'en';
+
+        $language = $language ? $language : realpath(__DIR__.'/../lang/en/contact.php');
 
         $this->publishes([$configuration => config_path('contact.php'),
-                          $language      => base_path('resources/lang/'.\Lang::getLocale().'/contact.php'), ]);
+                          $language      => base_path('resources/lang/'.$language_folder.'/contact.php'), ]);
 
         $this->mergeConfigFrom($configuration, 'contact');
 
